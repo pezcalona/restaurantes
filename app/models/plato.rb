@@ -1,0 +1,9 @@
+class Plato < ApplicationRecord
+  belongs_to :restaurante
+  has_many :puntajes_plato
+  has_many :puntajes, through: :puntajes_platos
+
+  validates(:nombre, presence: true)
+  validates(:precio,precense: true)
+  validates(:descripcion, presence: true)
+end

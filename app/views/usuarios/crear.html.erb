@@ -1,4 +1,8 @@
-<div class="m-5 p-3">
-    <h1>Registro</h2>
-    <%= render 'formulario', par_usuario: @usuario %>
-</div>
+<h1>Registro</h1>
+
+<% if flash[:eliminar] %>
+    <div class="alert alert-danger" role="alert">
+        <%= flash[:eliminar] %>
+    </div>
+<% end %>
+<%= render 'formulario', base_usuario: @usuario %>

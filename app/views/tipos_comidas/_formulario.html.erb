@@ -1,0 +1,10 @@
+<%= form_with(model: base_tipo_comida) do |formulario| %>
+    <%= formulario.label        :tipo %>
+    <%= formulario.text_field   :tipo %>
+    <% if base_tipo_comida.errors[:tipo].any? %>
+        <div class="alert alert-warning" role="alert">
+            <%= base_tipo_comida.errors[:tipo].first %>
+        </div>
+    <% end %>
+    <%= formulario.submit %>
+<% end %>
