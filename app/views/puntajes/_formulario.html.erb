@@ -1,5 +1,12 @@
+<div class='p-2'>
 <%= form_with(model: base_puntaje) do |formulario| %>
-    <%= formulario.label        :tipo %> 
+    <%= formulario.label        :tipo %>
     <%= formulario.text_field   :tipo %>
+        <% if base_puntaje.errors[:tipo].any? %>
+        <div class="alert alert-danger" role="alert">
+        <%= base_puntaje.errors[:tipo].first %>
+        </div>
+    <% end %> 
     <%= formulario.submit %>
 <% end %>
+</div>

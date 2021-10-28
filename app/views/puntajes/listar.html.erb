@@ -1,3 +1,4 @@
+<div class='p-5'>
 <h1>
     Listar puntajes
 </h1>
@@ -15,7 +16,6 @@
             <td> <%= puntaje.id %> </td>
             <td class="text-center"> 
                 <%= link_to puntaje_path(puntaje) do %>
-                    <i class="fas fa-fish"></i>
                     <%= puntaje.tipo %>
                 <% end %>
             </td>
@@ -32,3 +32,4 @@
         </tr>
     <% end %>
 </table>
+</div>

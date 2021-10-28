@@ -2,7 +2,7 @@
 class TiposComidasController < ApplicationController
 
     before_action :asignar_tipo_comida, only: [:mostrar, :editar, :actualizar, :eliminar]
-    
+
 
     # GET /tipos_comidas
     def listar
@@ -29,8 +29,7 @@ class TiposComidasController < ApplicationController
     # POST /tipos_comidas
     def guardar
         # guardar lo que llegue del formulario en la base de datos
-        datos_tipo_comida = params.require(:tipo_comida).permit(:tipo)
-        @tipo_comida = TipoComida.new(datos_tipo_comida)
+        @tipo_comida = TipoComida.new(almacenar_tipo_comida)
         if @tipo_comida.save # pregunta por las valiciones, SI pasa todas, se guarda, SINO, agregar un hash de errores
             redirect_to tipos_comidas_path
         else
@@ -40,9 +39,8 @@ class TiposComidasController < ApplicationController
 
     def actualizar
         # encontrar el registro que quiero editar en la BD
-        datos_tipo_comida = params.require(:tipo_comida).permit(:tipo)
         # actualizar los campos necesarios
-        @tipo_comida.tipo = datos_tipo_comida[:tipo]
+        @tipo_comida.tipo = almacenar_tipo_comida[:tipo]
         # guardar los cambios en la base de datos
         @tipo_comida.save
         # redireccionar a la lista de todos los tipos de comida
@@ -62,6 +60,10 @@ class TiposComidasController < ApplicationController
 
     def asignar_tipo_comida
         @tipo_comida = TipoComida.find(params[:id])
-    end 
+    end
+    
+    def almacenar_tipo_comida
+        datos_tipo_comida = params.require(:tipo_comida).permit(:tipo) #repetido
+    end
 
 end
