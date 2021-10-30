@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   
   # Rutas Tipos Comidas
+
   # Verbo /       #controlador/plural         #controlador#metodo             alias (cómo creamos el path en rails)
   #Get/Put/                                   Quién se hace cargo
   #Patch/Delete
   
-  get             'tipos_comidas',             to: 'tipos_comidas#listar',     as: 'tipos_comidas'     # listar 
-  get             'tipos_comidas/nuevo',       to: 'tipos_comidas#crear',      as: 'nuevo_tipo_comida' # formulario de nuevo
-  get             'tipos_comidas/:id',         to: 'tipos_comidas#mostrar',    as: 'tipo_comida'       # vista del detalle de un tipo de comida
-  get             'tipos_comidas/:id/editar',  to: 'tipos_comidas#editar',     as: 'editar_tipo_comida'# formulario para editar el registro
+  get             'tipos_comidas',             to: 'tipos_comidas#listar',     as: 'tipos_comidas'      # listar 
+  get             'tipos_comidas/nuevo',       to: 'tipos_comidas#crear',      as: 'nuevo_tipo_comida'  # formulario de nuevo
+  get             'tipos_comidas/:id',         to: 'tipos_comidas#mostrar',    as: 'tipo_comida'        # vista del detalle de un tipo de comida
+  get             'tipos_comidas/:id/editar',  to: 'tipos_comidas#editar',     as: 'editar_tipo_comida' # formulario para editar el registro
 
   post     'tipos_comidas',             to: 'tipos_comidas#guardar'
   put      'tipos_comidas/:id',         to: 'tipos_comidas#actualizar'
@@ -57,4 +58,17 @@ Rails.application.routes.draw do
   patch         'restaurantes/:id',           to: 'restaurantes#actualizar'
   put           'restaurantes/:id',           to: 'restaurantes#actualizar'
   delete        'restaurantes/:id',           to: 'restaurantes#eliminar'
+
+  # Platos
+
+  get 'platos',             to: 'platos#listar', as: 'platos'
+  get 'platos/crear',       to: 'platos#crear', as: 'nuevo_plato'
+  get 'platos/:id',         to: 'platos#mostrar', as: 'plato'
+  get 'platos/:id/editar',  to: 'platos#editar', as: 'editar_plato'
+  
+  post    'platos',            to: 'platos#guardar'
+  patch   'platos',            to: 'platos#actualizar'
+  put     'platos',            to: 'platos#actualizar'
+  delete  'platos',            to: 'platos#eliminar'
+
 end

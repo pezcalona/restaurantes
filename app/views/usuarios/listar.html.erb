@@ -11,9 +11,9 @@
 
         <tr>
             <td><%= usuario.id %></td>
-            <td><%= link_to usuario_path(usuario) %></td>
+            <td><%= link_to usuario.nombre_usuario, usuario_path(usuario) %></td>
 
-            <td class="text-end">>
+            <td class="text-end">
                 <%= link_to editar_usuario_path(usuario), class: 'btn btn-warning' do %>
                 <i class="fas fa-edit"></i>
                     Editar
