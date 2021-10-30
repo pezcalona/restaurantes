@@ -1,7 +1,7 @@
 class Usuario < ApplicationRecord
     has_secure_password
 
-    before_validation :convertir_capitalizar
+    # before_validation :convertir_capitalizar
 
     has_many :invitaciones
     # has_many :invitaciones_restaurantes, through: :invitaciones, source: :restaurante
@@ -16,9 +16,9 @@ class Usuario < ApplicationRecord
     validates(:nombre_usuario, presence: true)
     validates(:nombre_usuario, uniqueness: true)
 
-    private
-    def convertir_capitalizar
-        self.tipo.capitalize!
-    end
+    # private
+    # def convertir_capitalizar
+    #     self.tipo.capitalize!
+    # end
     
 end
