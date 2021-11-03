@@ -61,10 +61,10 @@ Rails.application.routes.draw do
 
   # Platos
 
-  get 'platos',             to: 'platos#listar', as: 'platos'
-  get 'platos/crear',       to: 'platos#crear', as: 'nuevo_plato'
-  get 'platos/:id',         to: 'platos#mostrar', as: 'plato'
-  get 'platos/:id/editar',  to: 'platos#editar', as: 'editar_plato'
+  get 'platos',                    to: 'platos#listar',   as: 'platos'
+  get 'platos/nuevo',              to: 'platos#crear',    as: 'nuevo_plato'
+  get 'platos/:id',                to: 'platos#mostrar',  as: 'plato'
+  get 'platos/:id/editar',         to: 'platos#editar',   as: 'editar_plato'
   
   post    'platos',            to: 'platos#guardar'
   patch   'platos',            to: 'platos#actualizar'

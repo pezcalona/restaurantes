@@ -19,17 +19,18 @@ ActiveRecord::Schema.define(version: 2021_10_26_232059) do
     t.integer "restaurante_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["restaurante_id"], name: "index_invitacions_on_restaurante_id"
-    t.index ["usuario_id"], name: "index_invitacions_on_usuario_id"
+    t.index ["restaurante_id"], name: "index_invitaciones_on_restaurante_id"
+    t.index ["usuario_id"], name: "index_invitaciones_on_usuario_id"
   end
 
   create_table "platos", force: :cascade do |t|
     t.string "nombre"
     t.integer "precio"
-    t.integer "descripcion_id", null: false
+    t.string "descripcion"
+    t.integer "restaurante_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["descripcion_id"], name: "index_platos_on_descripcion_id"
+    t.index ["restaurante_id"], name: "index_platos_on_restaurante_id"
   end
 
   create_table "promociones", force: :cascade do |t|
@@ -94,7 +95,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_232059) do
 
   add_foreign_key "invitaciones", "restaurantes"
   add_foreign_key "invitaciones", "usuarios"
-  add_foreign_key "platos", "descripcions"
+  add_foreign_key "platos", "restaurantes"
   add_foreign_key "promociones", "restaurantes"
   add_foreign_key "promociones", "usuarios"
   add_foreign_key "puntajes_platos", "platos"

@@ -50,6 +50,8 @@ class PuntajesController < ApplicationController
         redirect_to puntajes_path
     end
 
+private
+
     def asignar_puntaje
         @puntaje = Puntaje.find(params[:id])
     end

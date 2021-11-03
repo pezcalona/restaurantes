@@ -1,7 +1,5 @@
 class Restaurante < ApplicationRecord
 
-  before_validation :convertir_capitalizar
-
   belongs_to :tipo_comida # esto va en singular
   has_many :platos
 
@@ -18,8 +16,4 @@ class Restaurante < ApplicationRecord
   validates(:nombre, presence: true)
   validates(:nombre, uniqueness: true)
 
-  private
-    def convertir_capitalizar
-        self.tipo.capitalize!
-    end
 end

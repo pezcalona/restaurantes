@@ -8,6 +8,7 @@
             </div>
         <% end %>
     </div>
+
     <div class="mb-3">
         <%= formulario.label :descripcion, class: 'form-label' %>
         <%= formulario.text_field :descripcion, class: 'form-control' %>
@@ -17,12 +18,20 @@
             </div>
         <% end %>
     </div>
+
+    <div class="mb-3">
+        <%= formulario.label :precio, class: 'form-label' %>
+        <%= formulario.number_field :precio, class: 'form-control' %>
+        <% if base_plato.errors[:precio].any? %>
+            <div>
+                <%= base_plato.errors[:precio].first %>
+            </div>
+        <% end %>
+    </div>
+
     <div class="mb-3">
         <%= formulario.label :restaurante_id, class: 'form-label' %>
-        <%= formulario.select :restaurante_id, 
-            options_from_collection_for_select(restaurantes, :id, :nombre, base_plato.restaurante_id),
-            { include_blank: 'Elige un restaurante' },
-            class: "form-select" %>
+        <%= formulario.select :restaurante_id, options_from_collection_for_select(restaurantes, :id, :nombre, base_plato.restaurante_id),{ include_blank: 'Elige un restaurante' }, class: "form-select" %>
         <% if base_plato.errors[:restaurante_id].any? %>
             <div>
                 <%= base_plato.errors[:restaurante_id].first %>

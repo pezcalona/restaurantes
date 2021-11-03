@@ -12,6 +12,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 inflect.irregular 'tipo_comida', 'tipos_comidas'
 inflect.irregular 'invitacion', 'invitaciones'
 inflect.irregular 'promocion',  'promociones'
+inflect.irregular 'plato',      'platos'
 inflect.irregular 'puntaje_plato', 'puntajes_platos'
 inflect.irregular 'puntaje_restaurante', 'puntajes_restaurantes'
 end
