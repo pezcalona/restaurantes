@@ -1,0 +1,10 @@
+<h1>Votaciones</h1>
+
+<!-- Mostrar la lista de restaurantes/  |restaurantes| por |r| -->
+<div class="row">
+        <% @restaurantes.each do |restaurantes| %>
+            <div class="col mb-3">
+                <%= render "tarjeta_restaurante", base_restaurante: restaurantes, puntajes: @lista_puntajes %>
+            </div>
+        <% end %>
+</div>

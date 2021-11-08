@@ -11,7 +11,7 @@ class VotacionesController < ApplicationController
         voto = PuntajeRestaurante.new
         voto.restaurante_id = params[:id_restaurante]
         voto.puntaje_id     = params[:id_puntaje]
-        voto.usuario_id     = 7
+        voto.usuario_id     = 1 #base de datos quemada por falta de tiempo
         voto.save
         
         redirect_to root_path
